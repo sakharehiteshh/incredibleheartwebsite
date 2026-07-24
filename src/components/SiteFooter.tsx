@@ -18,7 +18,7 @@ export function SiteFooter() {
             <li><Link to="/about-us">About Us</Link></li>
             <li><a href="#">Terms of Service</a></li>
             <li><Link to="/weight-management">Weight Management</Link></li>
-            <li><Link to="/immigration-exam">Immigration Exam</Link></li>
+            <li><Link to="/immigrationexam">Immigration Exam</Link></li>
           </ul>
         </div>
         <div>

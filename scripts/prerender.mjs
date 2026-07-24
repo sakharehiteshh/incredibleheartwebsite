@@ -47,8 +47,8 @@ const routes = [
     </script>`,
   },
   {
-    path: "/immigration-exam",
-    outFile: "immigration-exam/index.html",
+    path: "/immigrationexam",
+    outFile: "immigrationexam/index.html",
     title: "Immigration Medical Exam (Form I-693) | Incredible Heart, Saint Louis, MO",
     description:
       "USCIS-designated Civil Surgeon offering immigration medical examinations (Form I-693) in Saint Louis, MO. Two office visits, $439. Call (314) 557-2620.",
@@ -57,9 +57,9 @@ const routes = [
       {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
-        "@id": "${SITE_URL}/immigration-exam#webpage",
+        "@id": "${SITE_URL}/immigrationexam#webpage",
         "name": "Immigration Medical Exam (Form I-693)",
-        "url": "${SITE_URL}/immigration-exam",
+        "url": "${SITE_URL}/immigrationexam",
         "about": {
           "@type": "MedicalProcedure",
           "name": "Immigration Medical Examination (Form I-693)",
