@@ -7,6 +7,7 @@ Incredible Heart provides personalized cardiac care for patients seeking a dedic
 ## Practice details
 
 - Physician: Dr. Kunal Gurav, MD, FACC, MBA
+- Independent practice, not affiliated with a hospital system
 - Credentials: Board-Certified in Cardiology & Internal Medicine; National Board of Echocardiography Certified; Certified in Nuclear Cardiology; MBA from Emory Goizueta Business School; Author & Editor for the American College of Cardiology; licensed in 20 states
 - Address: 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117
 - Phone: (314) 557-2620
@@ -29,6 +30,12 @@ A proactive-care program that integrates user-friendly at-home monitoring device
 ## Virtual Cardiac Rehab
 
 Three areas of ongoing support: at-home monitoring, personalized cardiac-care plans, and continuous/ongoing care — delivered via virtual or in-person consultations.
+
+## About Us
+
+Page: https://incredibleheart.care/about-us
+
+Incredible Heart is an independent preventive cardiology practice founded by Dr. Kunal Gurav, built around long-term patient relationships rather than high-volume hospital-system throughput. Dr. Gurav is himself an immigrant, which is part of why the practice also offers immigration medical exam services. The practice's philosophy — "the best doctor gives the least medicines" — centers on catching risk factors early through personalized visits and continuous home monitoring, rather than reacting only after a cardiac event.
 
 ## Weight Management Program
 

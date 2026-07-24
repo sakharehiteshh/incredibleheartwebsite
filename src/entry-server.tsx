@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "@/pages/Home";
 import WeightManagement from "@/pages/WeightManagement";
 import ImmigrationExam from "@/pages/ImmigrationExam";
+import AboutUs from "@/pages/AboutUs";
 
 export function render(path: string) {
   return renderToString(
@@ -12,6 +13,7 @@ export function render(path: string) {
         <Route path="/" element={<Home />} />
         <Route path="/weight-management" element={<WeightManagement />} />
         <Route path="/immigration-exam" element={<ImmigrationExam />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
     </StaticRouter>,
   );

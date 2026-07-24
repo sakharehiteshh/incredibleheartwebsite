@@ -1,9 +1,19 @@
+import aetnaLogo from "@/assets/logo-aetna.svg";
+import emblemHealthLogo from "@/assets/logo-emblemhealth.png";
+import ambetterLogo from "@/assets/logo-ambetter.png";
+import devotedHealthLogo from "@/assets/logo-devoted-health.svg";
+import essenceLogo from "@/assets/logo-essence.png";
+import medicareLogo from "@/assets/logo-medicare.png";
+import unitedHealthcareLogo from "@/assets/logo-unitedhealthcare.svg";
+import moHealthNetLogo from "@/assets/logo-mohealthnet.png";
+
 export type NavChild = { label: string; href: string };
 export type NavItem = { label: string; href?: string; children?: NavChild[] };
 
 export const nav: NavItem[] = [
-  { label: "Pay Your Bill" },
-  { label: "About Us" },
+
+  { label: "Patient Portal", href: "https://27550-1.portal.athenahealth.com/?section=welcome" },
+  { label: "About Us", href: "/about-us" },
   {
     label: "Programs & Care",
     children: [
@@ -33,7 +43,19 @@ export const nav: NavItem[] = [
       "Mobile Cardiac Telemetry", "Nuclear Stress Test", "Preop Clearance", "Remote Patient Monitoring",
     ].map((label) => ({ label, href: "#" })),
   },
+  { label: "Express Heart Care", href: "https://www.expressheartcare.com" },
   { label: "Blog", href: "https://nuvoair.com/incredible-heart" },
 ];
 
-export const insurers = ["Aetna", "EmblemHealth", "Ambetter", "ACC", "Devoted Health", "Essence", "Medicaid", "Medicare", "UnitedHealthcare"];
+export type Insurer = { name: string; logo: string; darkTile?: boolean };
+
+export const insurers: Insurer[] = [
+  { name: "Aetna", logo: aetnaLogo },
+  { name: "EmblemHealth", logo: emblemHealthLogo },
+  { name: "Ambetter", logo: ambetterLogo },
+  { name: "Devoted Health", logo: devotedHealthLogo },
+  { name: "Essence Healthcare", logo: essenceLogo },
+  { name: "MO HealthNet (Medicaid)", logo: moHealthNetLogo },
+  { name: "Medicare", logo: medicareLogo },
+  { name: "UnitedHealthcare", logo: unitedHealthcareLogo },
+];

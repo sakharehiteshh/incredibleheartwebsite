@@ -15,7 +15,7 @@ export function SiteFooter() {
         <div>
           <div className="font-semibold text-white mb-3">Quick Links</div>
           <ul className="space-y-2 text-sm">
-            <li><a href="#">Pay Your Bill</a></li>
+            <li><Link to="/about-us">About Us</Link></li>
             <li><a href="#">Terms of Service</a></li>
             <li><Link to="/weight-management">Weight Management</Link></li>
             <li><Link to="/immigration-exam">Immigration Exam</Link></li>

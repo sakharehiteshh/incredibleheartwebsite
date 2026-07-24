@@ -79,6 +79,25 @@ const routes = [
       }
     </script>`,
   },
+  {
+    path: "/about-us",
+    outFile: "about-us/index.html",
+    title: "About Us | Incredible Heart, Saint Louis, MO",
+    description:
+      "Meet Dr. Kunal Gurav and learn why Incredible Heart was built as an independent, preventive cardiology practice focused on personalized, technology-enabled heart care in Saint Louis, MO.",
+    extraHead: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": "${SITE_URL}/about-us#webpage",
+        "name": "About Incredible Heart",
+        "url": "${SITE_URL}/about-us",
+        "mainEntity": { "@id": "${SITE_URL}/#dr-gurav" },
+        "isPartOf": { "@id": "${SITE_URL}/#clinic" }
+      }
+    </script>`,
+  },
 ];
 
 function replaceMetaContent(html, selectorAttr, selectorValue, newContent) {

@@ -61,7 +61,7 @@ function WeightManagement() {
                 href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[var(--brand-yellow)] text-foreground font-semibold px-6 py-3 rounded-full shadow-sm hover:brightness-95 transition"
+                className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"
               >
                 Book an Appointment
               </a>
@@ -215,7 +215,7 @@ function WeightManagement() {
               href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[var(--brand-yellow)] text-foreground font-semibold px-6 py-3 rounded-full shadow-sm hover:brightness-95 transition"
+              className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"
             >
               Book an Appointment
             </a>
@@ -229,9 +229,12 @@ function WeightManagement() {
           <h2 className="text-center text-3xl font-extrabold tracking-tight">Covered by 100+ health plans, including:</h2>
           <div className="mt-10 group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex gap-6 w-max animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
-              {[...insurers, ...insurers, ...insurers].map((i, idx) => (
-                <div key={`${i}-${idx}`} className="h-16 w-40 shrink-0 flex items-center justify-center rounded-xl bg-secondary text-sm font-semibold text-muted-foreground text-center px-2">
-                  {i}
+              {[...insurers, ...insurers, ...insurers].map((ins, idx) => (
+                <div
+                  key={`${ins.name}-${idx}`}
+                  className={`h-16 w-40 shrink-0 flex items-center justify-center rounded-xl px-4 ${ins.darkTile ? "bg-[var(--brand-blue)]" : "bg-secondary"}`}
+                >
+                  <img src={ins.logo} alt={ins.name} className="max-h-9 max-w-full object-contain" />
                 </div>
               ))}
             </div>

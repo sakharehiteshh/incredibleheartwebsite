@@ -6,6 +6,7 @@ import tvSegmentPoster from "@/assets/tv-segment-poster.jpg";
 import { Activity, Stethoscope, Home as HomeIcon, Phone, MapPin, Star, Check } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 
@@ -20,16 +21,16 @@ const reviews = [
 
 const videos = [
   {
-    src: "/videos/kenya-trip.mp4",
+    youtubeId: "Y8qnxj5VaRU",
     poster: kenyaTripPoster,
     title: "Incredible Heart: Making a Difference in Kenya",
     description: "A look at Incredible Heart's community health outreach in Kenya.",
   },
   {
-    src: "/videos/tv-segment.mp4",
+    youtubeId: "U8BVVAxb9Pw",
     poster: tvSegmentPoster,
-    title: "Ask the Expert: Dr. Kunal Gurav on Studio STL",
-    description: "Dr. Gurav joins Studio STL to talk cardiac health and answer viewer questions.",
+    title: "Dr. Gurav Featured on Fox2 News — Ask the Expert",
+    description: "Dr. Gurav joins Fox2 News to talk cardiac health and answer viewer questions.",
   },
 ];
 
@@ -46,23 +47,6 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
-              Cardiac Care<br />
-              <span className="text-[var(--brand-pink)]">Everywhere</span>
-            </h1>
-            <p className="mt-8 text-lg text-foreground/75 max-w-lg leading-relaxed">
-              Your dedicated cardiologists at Incredible Heart prioritize personalized care, whether in-person or from home. With services ranging from same-day appointments for immediate attention to ongoing support, we're committed to your cardiac health.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[var(--brand-yellow)] text-foreground font-semibold px-6 py-3 rounded-full shadow-sm hover:brightness-95 transition">
-                Book Online
-              </a>
-              <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
-                <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
-              </a>
-            </div>
-          </div>
           <div className="relative">
             <img
               src={heroCouple}
@@ -74,6 +58,29 @@ function Home() {
               className="w-full h-auto"
             />
           </div>
+          <div>
+            <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
+              Cardiac Care<br />
+              <span className="text-[var(--brand-pink)]">Everywhere</span>
+            </h1>
+            <p className="mt-8 text-lg text-foreground/75 max-w-lg leading-relaxed">
+              Your dedicated cardiologists at Incredible Heart prioritize personalized care, whether in-person or from home. With services ranging from same-day appointments for immediate attention to ongoing support, we're committed to your cardiac health.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"
+              >
+                Book Online
+              </a>
+              <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
+                <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
+              </a>
+            </div>
+          </div>
+          
         </div>
       </section>
 
@@ -130,9 +137,12 @@ function Home() {
           <h2 className="text-center text-3xl font-extrabold tracking-tight">Covered by 100+ health plans, including:</h2>
           <div className="mt-10 group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex gap-6 w-max animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
-              {[...insurers, ...insurers, ...insurers].map((i, idx) => (
-                <div key={`${i}-${idx}`} className="h-16 w-40 shrink-0 flex items-center justify-center rounded-xl bg-secondary text-sm font-semibold text-muted-foreground text-center px-2">
-                  {i}
+              {[...insurers, ...insurers, ...insurers].map((ins, idx) => (
+                <div
+                  key={`${ins.name}-${idx}`}
+                  className={`h-16 w-40 shrink-0 flex items-center justify-center rounded-xl px-4 ${ins.darkTile ? "bg-[var(--brand-blue)]" : "bg-secondary"}`}
+                >
+                  <img src={ins.logo} alt={ins.name} className="max-h-9 max-w-full object-contain" />
                 </div>
               ))}
             </div>
@@ -177,16 +187,7 @@ function Home() {
           <div className="mt-14 grid md:grid-cols-2 gap-8">
             {videos.map((v) => (
               <div key={v.title} className="rounded-3xl bg-secondary/40 border border-border overflow-hidden">
-                <video
-                  src={v.src}
-                  poster={v.poster}
-                  controls
-                  preload="none"
-                  playsInline
-                  className="w-full aspect-video bg-black"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                <YouTubeEmbed videoId={v.youtubeId} title={v.title} poster={v.poster} />
                 <div className="p-6">
                   <h3 className="text-xl font-bold">{v.title}</h3>
                   <p className="mt-2 text-foreground/75">{v.description}</p>

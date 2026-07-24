@@ -6,12 +6,13 @@ import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 
 const reviews = [
-  { name: "Patrice Hopes", text: "I thoroughly enjoyed my first visit. Dr. Gurav made me feel right at home and shows real concern for my overall health. The office assistant was so pleasant. You don't always get this type of help — you sometimes feel like a number, but not here." },
-  { name: "Mili Kuo", text: "I had an excellent experience with Dr. Gurav for my family. From the welcoming assistant to the thorough examination, everything was top-notch. He listened attentively and provided a clear plan." },
-  { name: "Doris Pittman", text: "I've been very pleased with Dr. Gurav for a few years. He's very compassionate and thorough when he explains your heart. I've referred him to many people." },
-  { name: "Kimberly Leflore", text: "Dr. Gurav was great. He has a system of getting the readings of my BP and O2 sats from home. He was very pleasant and easy to talk with." },
-  { name: "Dorothy Hunter", text: "I'm glad to be here, I'm so thankful. He is a great doctor — patient, concerned, caring, and listens to what you have to say. Truly cares about your health." },
-  { name: "Jason Hill", text: "Got taken care of fast and professionally. The office has high-tech equipment, everything's clean and efficient. The doctor was thorough and asked the right questions." },
+  { name: "Satheesh Kumar", text: "I recently completed my immigration medical exam here and had a very positive experience. The clinic was clean, organized, and welcoming. Dr. Kunal and the staff made the entire process easy from start to finish. What stood out most was Dr. Kunal's availability over the weekend by phone, which helped simplify the process and allowed me to complete everything without needing an extra trip, which was incredibly convenient. The team was efficient, professional, and genuinely helpful throughout. I highly recommend this clinic to anyone needing an immigration medical exam." },
+  { name: "Happy", text: "Had a great experience completing our immigration medical exams with Dr. Gurav and the team. They were professional, polite, and very efficient throughout the entire process. We received our sealed medical records within a week, which was impressively quick. The doctor also carefully reviewed my vaccination history, explained which vaccines I was missing, and guided me on the next steps to complete them. They made sure all requirements were fully met for the medical exam." },
+  { name: "Artem A", text: "Went here for my immigration physical exam, everyone was very helpful, saw me in a timely manner, made sure all the docs were in order. Recommend if you're looking for a civil surgeon!" },
+  { name: "Nguyên Lê", text: "I had my Form I-693 medical exam done at Incredible Heart. The process was quick and smooth, and the staff were very helpful. They made sure all my paperwork was completed correctly. Highly recommend!" },
+  { name: "Yalcin Arslan", text: "Incredible Heart with incredible service. From the moment we entered they were kind, polite, and helpful. I really appreciate all of their help, and especially Nikki for her help and guiding us through every step. This is the place to go if you ever need a medical examination report. Thanks to all the office ladies and gentlemen in this area." },
+  { name: "Abhishek", text: "I had a great experience here for my USCIS medical exam. The staff was friendly, professional, and the process was quick and smooth." },
+  { name: "Guo David", text: "Dr. Gurav is really patient and friendly. He helped me a lot with the paperwork for my immigration medical exam. Everything went smoothly!" },
 ];
 
 const whatToBring = [
@@ -69,8 +70,13 @@ function ImmigrationExam() {
               Our Civil Surgeon, himself an immigrant, will guide you through every step of the process.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[var(--brand-yellow)] text-foreground font-semibold px-6 py-3 rounded-full shadow-sm hover:brightness-95 transition">
-                Schedule Your Appointment
+              <a
+                href="https://calendly.com/incredibleheartit/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"
+              >
+                Book an Appointment
               </a>
               <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
                 <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
@@ -103,10 +109,12 @@ function ImmigrationExam() {
               Call for group bookings or expedited appointments, or request an appointment online below.
             </p>
             <a
-              href="#contact"
+              href="https://calendly.com/incredibleheartit/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 bg-[var(--brand-blue)] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition"
             >
-              Schedule Your Appointment
+              Book an Appointment
             </a>
           </div>
         </div>
@@ -142,7 +150,7 @@ function ImmigrationExam() {
       <section className="bg-white border-y border-border/60">
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
           <div className="order-2 lg:order-1">
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
+            <span className="inline-block text-base font-bold tracking-widest text-[var(--brand-pink)] uppercase">
               USCIS-Designated Civil Surgeon
             </span>
             <h2 className="mt-4 text-5xl font-extrabold tracking-tight">Meet Dr. Kunal Gurav</h2>
@@ -162,10 +170,12 @@ function ImmigrationExam() {
               ))}
             </ul>
             <a
-              href="#contact"
+              href="https://calendly.com/incredibleheartit/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 bg-[var(--brand-blue)] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition"
             >
-              Schedule Your Appointment
+              Book an Appointment
             </a>
           </div>
           <div className="order-1 lg:order-2 relative">
@@ -206,9 +216,12 @@ function ImmigrationExam() {
           <h2 className="text-center text-3xl font-extrabold tracking-tight">Covered by 100+ health plans, including:</h2>
           <div className="mt-10 group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex gap-6 w-max animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
-              {[...insurers, ...insurers, ...insurers].map((i, idx) => (
-                <div key={`${i}-${idx}`} className="h-16 w-40 shrink-0 flex items-center justify-center rounded-xl bg-secondary text-sm font-semibold text-muted-foreground text-center px-2">
-                  {i}
+              {[...insurers, ...insurers, ...insurers].map((ins, idx) => (
+                <div
+                  key={`${ins.name}-${idx}`}
+                  className={`h-16 w-40 shrink-0 flex items-center justify-center rounded-xl px-4 ${ins.darkTile ? "bg-[var(--brand-blue)]" : "bg-secondary"}`}
+                >
+                  <img src={ins.logo} alt={ins.name} className="max-h-9 max-w-full object-contain" />
                 </div>
               ))}
             </div>
