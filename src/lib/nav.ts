@@ -21,7 +21,7 @@ export const nav: NavItem[] = [
       { label: "Weight Management", href: "/weight-management" },
     ],
   },
-  { label: "Immigration Exam", href: "/immigration-exam" },
+  { label: "Immigration Exam", href: "/immigrationexam" },
   {
     label: "Specialities",
     children: [
