@@ -4,6 +4,9 @@ import { Phone, MapPin, Check, HeartHandshake, Building2, Sparkles, Activity } f
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
+import { useRouteContact } from "@/hooks/use-route-contact";
+import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
+import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const values = [
   {
@@ -28,6 +31,7 @@ function AboutUs() {
     "About Us | Incredible Heart, Saint Louis, MO",
     "Meet Dr. Kunal Gurav and learn why Incredible Heart was built as an independent, preventive cardiology practice focused on personalized, technology-enabled heart care in Saint Louis, MO.",
   );
+  const { phone } = useRouteContact();
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -51,6 +55,8 @@ function AboutUs() {
           </div>
         </div>
       </section>
+
+      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Dr. Gurav's story */}
       <section className="bg-white border-y border-border/60">
@@ -160,7 +166,7 @@ function AboutUs() {
             <p className="mt-5 text-white/85 text-lg">Request more information and our team will be in touch.</p>
             <address className="mt-8 space-y-4 text-white/90 not-italic">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5" /> <a href="tel:+13145572620" className="hover:underline">(314) 557-2620</a>
+                <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
               <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
             </address>

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import logoIconWhite from "@/assets/logo-icon-white.png";
+import { useRouteContact } from "@/hooks/use-route-contact";
 
 export function SiteFooter() {
+  const { phone } = useRouteContact();
   return (
     <footer className="bg-foreground text-white/80">
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
@@ -25,7 +27,7 @@ export function SiteFooter() {
           <div className="font-semibold text-white mb-3">Visit Us</div>
           <address className="not-italic text-sm space-y-1">
             <p>1034 S Brentwood Blvd Ste 694<br />Saint Louis, MO 63117</p>
-            <p><a href="tel:+13145572620" className="hover:underline">(314) 557-2620</a></p>
+            <p><a href={phone.href} className="hover:underline">{phone.display}</a></p>
             <p><a href="mailto:incredibleheartit@gmail.com" className="hover:underline break-words">incredibleheartit@gmail.com</a></p>
             <p>Fax: (833) 973-4441</p>
           </address>

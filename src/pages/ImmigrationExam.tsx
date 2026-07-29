@@ -1,9 +1,27 @@
 import doctor from "@/assets/doctor.jpg";
-import { Phone, MapPin, Star, Check, FileText, ClipboardList, Stethoscope, FileCheck2 } from "lucide-react";
+import { Phone, MapPin, Star, Check, FileText, ClipboardList, Stethoscope, FileCheck2, CalendarClock, CalendarPlus } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
+import { useRouteContact } from "@/hooks/use-route-contact";
+import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
+import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
+
+const schedulingCallouts = [
+  {
+    icon: CalendarClock,
+    title: "Same Day Appointments Available",
+    text: "Call us to check availability for today.",
+    note: "*Depends on time and availability.",
+  },
+  {
+    icon: CalendarPlus,
+    title: "Weekend Slots Available on request",
+    text: "+$50 weekend convenience fee — call us to check.",
+    note: undefined,
+  },
+];
 
 const reviews = [
   { name: "Satheesh Kumar", text: "I recently completed my immigration medical exam here and had a very positive experience. The clinic was clean, organized, and welcoming. Dr. Kunal and the staff made the entire process easy from start to finish. What stood out most was Dr. Kunal's availability over the weekend by phone, which helped simplify the process and allowed me to complete everything without needing an extra trip, which was incredibly convenient. The team was efficient, professional, and genuinely helpful throughout. I highly recommend this clinic to anyone needing an immigration medical exam." },
@@ -50,6 +68,7 @@ function ImmigrationExam() {
     "Immigration Medical Exam (Form I-693) | Incredible Heart, Saint Louis, MO",
     "USCIS-designated Civil Surgeon offering immigration medical examinations (Form I-693) in Saint Louis, MO. Two office visits, $439. Call (314) 557-2620.",
   );
+  const { phone } = useRouteContact();
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -78,13 +97,36 @@ function ImmigrationExam() {
               >
                 Book an Appointment
               </a>
-              <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
-                <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
+              <a href={phone.href} className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
+                <Phone className="w-4 h-4" /> Call us: {phone.display}
               </a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Scheduling callouts */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid sm:grid-cols-2 gap-6">
+          {schedulingCallouts.map((c) => (
+            <div key={c.title} className="rounded-2xl border border-border bg-[var(--brand-cream)] p-6">
+              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-blue)] text-white flex items-center justify-center">
+                <c.icon className="w-6 h-6" />
+              </div>
+              <h3 className="mt-4 text-xl font-bold">{c.title}</h3>
+              <p className="mt-2 text-foreground/80">
+                {c.text}{" "}
+                <a href={phone.href} className="font-semibold text-[var(--brand-blue)] hover:underline">
+                  {phone.display}
+                </a>
+              </p>
+              {c.note && <p className="mt-3 text-xs text-foreground/60">{c.note}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* What to bring */}
       <section className="bg-white border-y border-border/60">
@@ -266,7 +308,7 @@ function ImmigrationExam() {
             <p className="mt-5 text-white/85 text-lg">Request more information and our team will be in touch.</p>
             <address className="mt-8 space-y-4 text-white/90 not-italic">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5" /> <a href="tel:+13145572620" className="hover:underline">(314) 557-2620</a>
+                <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
               <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
             </address>

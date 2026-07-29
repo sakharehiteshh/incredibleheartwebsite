@@ -5,6 +5,9 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
+import { useRouteContact } from "@/hooks/use-route-contact";
+import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
+import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const testimonials = [
   { name: "Renee Ashford", text: "The weight management program paired with my cardiac care meant one doctor understood the whole picture. The home scale kept me accountable between visits." },
@@ -34,6 +37,7 @@ function WeightManagement() {
     "Heart Disease & Weight Management Program | Incredible Heart, Saint Louis, MO",
     "Physician-supervised weight management from a board-certified cardiologist — insurance-approved medication, home smart scales, and coordinated heart-disease care in Saint Louis, MO.",
   );
+  const { phone } = useRouteContact();
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -65,8 +69,8 @@ function WeightManagement() {
               >
                 Book an Appointment
               </a>
-              <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
-                <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
+              <a href={phone.href} className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
+                <Phone className="w-4 h-4" /> Call us: {phone.display}
               </a>
             </div>
           </div>
@@ -83,6 +87,8 @@ function WeightManagement() {
           </div>
         </div>
       </section>
+
+      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Doctor section */}
       <section className="bg-white border-y border-border/60">
@@ -273,7 +279,7 @@ function WeightManagement() {
             <p className="mt-5 text-white/85 text-lg">Request more information and our team will be in touch.</p>
             <address className="mt-8 space-y-4 text-white/90 not-italic">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5" /> <a href="tel:+13145572620" className="hover:underline">(314) 557-2620</a>
+                <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
               <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
             </address>

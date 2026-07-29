@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import WeightManagement from "@/pages/WeightManagement";
 import ImmigrationExam from "@/pages/ImmigrationExam";
 import AboutUs from "@/pages/AboutUs";
+import { FloatingDock } from "@/components/FloatingDock";
 
 export function render(path: string) {
   return renderToString(
@@ -15,6 +16,7 @@ export function render(path: string) {
         <Route path="/immigrationexam" element={<ImmigrationExam />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
+      <FloatingDock />
     </StaticRouter>,
   );
 }

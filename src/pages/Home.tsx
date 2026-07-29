@@ -9,6 +9,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
+import { useRouteContact } from "@/hooks/use-route-contact";
+import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
+import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const reviews = [
   { name: "Patrice Hopes", text: "I thoroughly enjoyed my first visit. Dr. Gurav made me feel right at home and shows real concern for my overall health. The office assistant was so pleasant. You don't always get this type of help — you sometimes feel like a number, but not here." },
@@ -39,6 +42,7 @@ function Home() {
     "Incredible Heart — Cardiologist in Saint Louis, MO | Cardiac Care, Everywhere",
     "Board-certified cardiologist Dr. Kunal Gurav, MD, FACC offers same-day in-person and virtual cardiac care in Saint Louis, MO — arrhythmia, heart failure, EKG, echocardiogram and more. Call (314) 557-2620.",
   );
+  const { phone } = useRouteContact();
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -75,14 +79,16 @@ function Home() {
               >
                 Book Online
               </a>
-              <a href="tel:+13145572620" className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
-                <Phone className="w-4 h-4" /> Call us: +1 314-557-2620
+              <a href={phone.href} className="inline-flex items-center gap-2 text-foreground font-semibold underline underline-offset-4 decoration-2 decoration-[var(--brand-blue)]">
+                <Phone className="w-4 h-4" /> Call us: {phone.display}
               </a>
             </div>
           </div>
           
         </div>
       </section>
+
+      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Doctor section */}
       <section className="bg-white border-y border-border/60">
@@ -250,7 +256,7 @@ function Home() {
             <p className="mt-5 text-white/85 text-lg">Request more information and our team will be in touch.</p>
             <address className="mt-8 space-y-4 text-white/90 not-italic">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5" /> <a href="tel:+13145572620" className="hover:underline">(314) 557-2620</a>
+                <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
               <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
             </address>

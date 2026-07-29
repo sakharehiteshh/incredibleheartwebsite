@@ -6,13 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-
-const contactDetails = [
-  { icon: MapPin, label: "Address", value: "1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117", href: undefined },
-  { icon: Phone, label: "Phone", value: "(314) 557-2620", href: "tel:+13145572620" },
-  { icon: Mail, label: "Email", value: "incredibleheartit@gmail.com", href: "mailto:incredibleheartit@gmail.com" },
-  { icon: Printer, label: "Fax", value: "(833) 973-4441", href: undefined },
-];
+import { useRouteContact } from "@/hooks/use-route-contact";
 
 interface ContactInfoModalProps {
   open: boolean;
@@ -20,6 +14,15 @@ interface ContactInfoModalProps {
 }
 
 export function ContactInfoModal({ open, onOpenChange }: ContactInfoModalProps) {
+  const { phone, address, email } = useRouteContact();
+
+  const contactDetails = [
+    { icon: MapPin, label: "Address", value: address, href: undefined },
+    { icon: Phone, label: "Phone", value: phone.display, href: phone.href },
+    { icon: Mail, label: "Email", value: email, href: `mailto:${email}` },
+    { icon: Printer, label: "Fax", value: "(833) 973-4441", href: undefined },
+  ];
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
