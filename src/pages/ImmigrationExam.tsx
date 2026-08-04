@@ -66,7 +66,7 @@ const steps = [
 function ImmigrationExam() {
   useDocumentMeta(
     "Immigration Medical Exam (Form I-693) | Incredible Heart, Saint Louis, MO",
-    "USCIS-designated Civil Surgeon offering immigration medical examinations (Form I-693) in Saint Louis, MO. Two office visits, $439. Call (314) 557-2620.",
+    "USCIS-designated Civil Surgeon offering immigration medical examinations (Form I-693) in Saint Louis, MO. Two office visits. Call (314) 557-2620.",
   );
   const { phone } = useRouteContact();
 
@@ -78,15 +78,31 @@ function ImmigrationExam() {
       <section className="relative overflow-hidden bg-[var(--brand-cream)]">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Immigration Medical Exam
+            <span className="inline-block text-base font-bold tracking-widest text-[var(--brand-pink)] uppercase">
+              USCIS Civil Surgeon
             </span>
             <h1 className="mt-4 text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
-              Immigration Exam — $439
+              Immigration Exam
             </h1>
             <p className="mt-8 text-lg text-foreground/75 leading-relaxed">
               Our clinic offers Immigration Medical Examinations (Form I-693) with a USCIS-designated Civil Surgeon.
               Our Civil Surgeon, himself an immigrant, will guide you through every step of the process.
+            </p>
+            <ul className="mt-6 space-y-2">
+              {[
+                "Immigration Exam — Fully Covered by HSA/FSA*",
+                "Vaccines — $0*",
+                "Labs — $0*",
+              ].map((c) => (
+                <li key={c} className="flex gap-3 text-lg font-semibold text-foreground">
+                  <Check className="w-5 h-5 text-[var(--brand-blue)] mt-1 shrink-0" /> {c}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 text-xs text-foreground/60">
+              *We accept HSA/FSA cards. We don't bill insurance directly, but some patients have succeeded in getting
+              reimbursed by submitting directly to their insurance themselves — this depends on your individual plan,
+              copay, and deductible.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
@@ -145,7 +161,7 @@ function ImmigrationExam() {
           <div className="rounded-3xl bg-[var(--brand-cream)] p-8 lg:p-10">
             <h3 className="text-2xl font-bold">Fee &amp; scheduling</h3>
             <p className="mt-4 text-foreground/80 leading-relaxed">
-              $439 — includes two office visits. Payment is due at the first visit.
+              Includes two office visits. Payment is due at the first visit.
             </p>
             <p className="mt-4 text-foreground/80 leading-relaxed">
               Call for group bookings or expedited appointments, or request an appointment online below.
@@ -293,7 +309,7 @@ function ImmigrationExam() {
             <div className="rounded-2xl border border-border bg-white p-6">
               <div className="font-semibold text-lg">When is payment due?</div>
               <p className="mt-3 text-foreground/75">
-                The $439 fee covers both office visits and is due at your first visit.
+                The fee covers both office visits and is due at your first visit.
               </p>
             </div>
           </div>
