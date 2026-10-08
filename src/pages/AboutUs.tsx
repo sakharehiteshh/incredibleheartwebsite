@@ -1,12 +1,10 @@
-import doctor from "@/assets/doctor.jpg";
-import heroCouple from "@/assets/hero-couple.jpg";
+import doctor from "@/assets/doctor.webp";
+import heroCouple from "@/assets/hero-couple.webp";
 import { Phone, MapPin, Check, HeartHandshake, Building2, Sparkles, Activity } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
-import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
-import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const values = [
   {
@@ -55,8 +53,6 @@ function AboutUs() {
           </div>
         </div>
       </section>
-
-      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Dr. Gurav's story */}
       <section className="bg-white border-y border-border/60">

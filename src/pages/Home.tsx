@@ -1,8 +1,8 @@
-import heroCouple from "@/assets/hero-couple.jpg";
-import doctor from "@/assets/doctor.jpg";
-import manKid from "@/assets/man-kid.jpg";
-import kenyaTripPoster from "@/assets/kenya-trip-poster.jpg";
-import tvSegmentPoster from "@/assets/tv-segment-poster.jpg";
+import heroCouple from "@/assets/hero-couple.webp";
+import doctor from "@/assets/doctor.webp";
+import manKid from "@/assets/man-kid.webp";
+import kenyaTripPoster from "@/assets/kenya-trip-poster.webp";
+import tvSegmentPoster from "@/assets/tv-segment-poster.webp";
 import { Activity, Stethoscope, Home as HomeIcon, Phone, MapPin, Star, Check } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -10,8 +10,6 @@ import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
-import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
-import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const reviews = [
   { name: "Patrice Hopes", text: "I thoroughly enjoyed my first visit. Dr. Gurav made me feel right at home and shows real concern for my overall health. The office assistant was so pleasant. You don't always get this type of help — you sometimes feel like a number, but not here." },
@@ -87,8 +85,6 @@ function Home() {
           
         </div>
       </section>
-
-      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Doctor section */}
       <section className="bg-white border-y border-border/60">

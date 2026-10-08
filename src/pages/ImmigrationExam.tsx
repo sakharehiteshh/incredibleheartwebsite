@@ -1,12 +1,10 @@
-import doctor from "@/assets/doctor.jpg";
+import doctor from "@/assets/doctor.webp";
 import { Phone, MapPin, Star, Check, FileText, ClipboardList, Stethoscope, FileCheck2, CalendarClock, CalendarPlus } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
-import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
-import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const schedulingCallouts = [
   {
@@ -34,10 +32,8 @@ const reviews = [
 ];
 
 const whatToBring = [
-  "Form I-693 (most recent edition), unsigned",
-  "Part 1 completed, but not signed",
-  "Your medical records, including vaccination history",
-  "A photo ID",
+  "All vaccination records you currently have",
+  "A valid photo ID or passport",
 ];
 
 const steps = [
@@ -142,8 +138,6 @@ function ImmigrationExam() {
         </div>
       </section>
 
-      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
-
       {/* What to bring */}
       <section className="bg-white border-y border-border/60">
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14">
@@ -156,6 +150,13 @@ function ImmigrationExam() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-foreground/80 leading-relaxed">
+              We will complete the Form I-693 during your first appointment. It should only take 2–3 minutes to complete.
+            </p>
+            <p className="mt-4 rounded-2xl border border-[var(--brand-pink)]/40 bg-[var(--brand-cream)] p-4 text-foreground/80 leading-relaxed">
+              <span className="font-bold text-[var(--brand-pink)]">Important:</span> Please DO NOT bring a printed copy
+              of the Form I-693. We will provide the required form at the clinic.
+            </p>
             <p className="mt-6 text-sm text-foreground/60">Language translation is available during your visit.</p>
           </div>
           <div className="rounded-3xl bg-[var(--brand-cream)] p-8 lg:p-10">

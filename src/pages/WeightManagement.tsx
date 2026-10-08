@@ -1,13 +1,11 @@
-import weightMan from "@/assets/weight-man.png";
-import doctor from "@/assets/doctor.jpg";
+import weightMan from "@/assets/weight-man.webp";
+import doctor from "@/assets/doctor.webp";
 import { Phone, MapPin, Star, Check, Scale, Pill, Users, HeartPulse } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
-import { LimitedTimeOffer } from "@/components/LimitedTimeOffer";
-import { CARDIAC_SCREENING_OFFER, CARDIAC_SCREENING_BOOKING_URL } from "@/lib/promos";
 
 const testimonials = [
   { name: "Renee Ashford", text: "The weight management program paired with my cardiac care meant one doctor understood the whole picture. The home scale kept me accountable between visits." },
@@ -87,8 +85,6 @@ function WeightManagement() {
           </div>
         </div>
       </section>
-
-      <LimitedTimeOffer variant="banner" offer={CARDIAC_SCREENING_OFFER} ctaHref={CARDIAC_SCREENING_BOOKING_URL} />
 
       {/* Doctor section */}
       <section className="bg-white border-y border-border/60">

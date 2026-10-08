@@ -10,6 +10,32 @@ const baseIndexPath = path.resolve(distDir, "index.html");
 
 const SITE_URL = "https://incredibleheart.care";
 
+
+const breadcrumb = (name, pathName) => `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "${SITE_URL}/" },
+          { "@type": "ListItem", "position": 2, "name": "${name}", "item": "${SITE_URL}${pathName}" }
+        ]
+      }
+    </script>`;
+
+const immigrationFaq = `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How many visits does the exam take?", "acceptedAnswer": { "@type": "Answer", "text": "Two. The first visit is the initial exam and identifies any additional testing you need. The second visit is to complete and seal Form I-693 once results are back." } },
+          { "@type": "Question", "name": "Is additional testing covered by insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — any additional testing your Civil Surgeon orders is insurance-covered and can be completed at a facility of your choice. We provide referrals." } },
+          { "@type": "Question", "name": "When is payment due?", "acceptedAnswer": { "@type": "Answer", "text": "The fee covers both office visits and is due at your first visit." } }
+        ]
+      }
+    </script>`;
+
 const routes = [
   {
     path: "/",
@@ -29,9 +55,9 @@ const routes = [
       {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
-        "@id": "${SITE_URL}/weight-management#webpage",
+        "@id": "${SITE_URL}/weight-management/#webpage",
         "name": "Heart Disease & Weight Management Program",
-        "url": "${SITE_URL}/weight-management",
+        "url": "${SITE_URL}/weight-management/",
         "about": {
           "@type": "MedicalTherapy",
           "name": "Physician-Supervised Weight Management",
@@ -44,7 +70,7 @@ const routes = [
         },
         "isPartOf": { "@id": "${SITE_URL}/#clinic" }
       }
-    </script>`,
+    </script>${breadcrumb("Weight Management", "/weight-management/")}`,
   },
   {
     path: "/immigrationexam",
@@ -57,9 +83,9 @@ const routes = [
       {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
-        "@id": "${SITE_URL}/immigrationexam#webpage",
+        "@id": "${SITE_URL}/immigrationexam/#webpage",
         "name": "Immigration Medical Exam (Form I-693)",
-        "url": "${SITE_URL}/immigrationexam",
+        "url": "${SITE_URL}/immigrationexam/",
         "about": {
           "@type": "MedicalProcedure",
           "name": "Immigration Medical Examination (Form I-693)",
@@ -72,7 +98,7 @@ const routes = [
         },
         "isPartOf": { "@id": "${SITE_URL}/#clinic" }
       }
-    </script>`,
+    </script>${breadcrumb("Immigration Exam", "/immigrationexam/")}${immigrationFaq}`,
   },
   {
     path: "/about-us",
@@ -85,13 +111,20 @@ const routes = [
       {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "@id": "${SITE_URL}/about-us#webpage",
+        "@id": "${SITE_URL}/about-us/#webpage",
         "name": "About Incredible Heart",
-        "url": "${SITE_URL}/about-us",
+        "url": "${SITE_URL}/about-us/",
         "mainEntity": { "@id": "${SITE_URL}/#dr-gurav" },
         "isPartOf": { "@id": "${SITE_URL}/#clinic" }
       }
-    </script>`,
+    </script>${breadcrumb("About Us", "/about-us/")}`,
+  },
+  {
+    path: "/__404",
+    outFile: "404.html",
+    notFound: true,
+    title: "Page not found | Incredible Heart",
+    description: "The page you're looking for doesn't exist.",
   },
 ];
 
@@ -105,7 +138,7 @@ const baseHtml = fs.readFileSync(baseIndexPath, "utf-8");
 
 for (const route of routes) {
   const appHtml = render(route.path);
-  const url = `${SITE_URL}${route.path === "/" ? "/" : route.path}`;
+  const url = `${SITE_URL}${route.path === "/" || route.notFound ? "/" : route.path + "/"}`;
 
   let html = baseHtml;
   if (!html.includes('<div id="root"></div>')) {
@@ -120,6 +153,10 @@ for (const route of routes) {
   html = replaceMetaContent(html, "name", "twitter:title", route.title);
   html = replaceMetaContent(html, "name", "twitter:description", route.description);
   html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${url}"`);
+  if (route.notFound) {
+    html = html.replace(/<meta name="robots" content="[^"]*"/, '<meta name="robots" content="noindex, follow"');
+    html = html.replace(/<link rel="canonical"[^>]*>\s*/, "");
+  }
 
   if (route.extraHead) {
     html = html.replace("</head>", `${route.extraHead}\n  </head>`);
