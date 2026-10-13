@@ -60,7 +60,7 @@ function WeightManagement() {
             </blockquote>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
-                href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296"
+                href="https://www.zocdoc.com/booking-link/doctor/kunal-gurav-md-396698"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"
@@ -214,7 +214,7 @@ function WeightManagement() {
           </div>
           <div className="mt-10 text-center">
             <a
-              href="https://www.zocdoc.com/booking-link/practice/incredible-heart-82296"
+              href="https://www.zocdoc.com/booking-link/doctor/kunal-gurav-md-396698"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[var(--brand-pink)] text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:brightness-110 transition-all duration-200"

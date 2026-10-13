@@ -18,7 +18,7 @@ export function getPhone(pathname: string) {
 }
 
 const DEFAULT_BOOKING_URL =
-  "https://www.zocdoc.com/practice/incredible-heart-82296?isNewPatient=true&utm_term=booking_link&referrerType=widget";
+  "https://www.zocdoc.com/booking-link/doctor/kunal-gurav-md-396698";
 const IMMIGRATION_BOOKING_URL = "https://calendly.com/incredibleheartit/30min";
 
 export function getBookingUrl(pathname: string) {
