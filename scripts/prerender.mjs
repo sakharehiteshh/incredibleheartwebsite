@@ -120,6 +120,38 @@ const routes = [
     </script>${breadcrumb("About Us", "/about-us/")}`,
   },
   {
+    path: "/express-heart-care",
+    outFile: "express-heart-care/index.html",
+    title: "Express Heart Care | Heart Screening in Minutes, Saint Louis, MO",
+    description:
+      "Express Heart Care offers fast in-clinic heart screening in Saint Louis, MO — EKG, cholesterol, heart attack risk score and more, reviewed by a board-certified cardiologist. From $55. Call (314) 248-4076.",
+    extraHead: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "@id": "${SITE_URL}/express-heart-care/#webpage",
+        "name": "Express Heart Care",
+        "url": "${SITE_URL}/express-heart-care/",
+        "isPartOf": { "@id": "${SITE_URL}/#clinic" }
+      }
+    </script>${breadcrumb("Express Heart Care", "/express-heart-care/")}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Who should get tested?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone above 20 years of age should get these tests as recommended by CDC (Centers for Disease Control and Prevention) and AHA (American Heart Association). Early detection is key to preventing heart disease, even if you feel healthy."}},
+          {"@type": "Question", "name": "How quickly do I get results?", "acceptedAnswer": {"@type": "Answer", "text": "Most results are available within 30 minutes. Our cardiologist reviews your tests and provides a comprehensive report with clear next steps within 24-48 hours."}},
+          {"@type": "Question", "name": "Can I use insurance?", "acceptedAnswer": {"@type": "Answer", "text": "Our services are self-pay for transparency and speed. We're HSA/FSA friendly, and we'll help you understand your options."}},
+          {"@type": "Question", "name": "What should I bring?", "acceptedAnswer": {"@type": "Answer", "text": "Bring a valid ID. Wear comfortable clothing that allows easy access to your chest for the EKG and Heart Sound Exam."}},
+          {"@type": "Question", "name": "Do I need a referral?", "acceptedAnswer": {"@type": "Answer", "text": "No referral needed! You can schedule directly with us. We're here to make heart tests accessible and convenient for everyone."}},
+          {"@type": "Question", "name": "Is it HIPAA compliant?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. We're fully HIPAA-compliant with encrypted data storage. Your privacy and security are our top priorities."}}
+        ]
+      }
+    </script>`,
+  },
+  {
     path: "/__404",
     outFile: "404.html",
     notFound: true,

@@ -43,7 +43,7 @@ export const nav: NavItem[] = [
       "Mobile Cardiac Telemetry", "Nuclear Stress Test", "Preop Clearance", "Remote Patient Monitoring",
     ].map((label) => ({ label, href: "#" })),
   },
-  { label: "Express Heart Care", href: "https://www.expressheartcare.com" },
+  { label: "Express Heart Care", href: "/express-heart-care" },
   { label: "Blog", href: "https://nuvoair.com/incredible-heart" },
 ];
 

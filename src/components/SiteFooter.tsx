@@ -3,7 +3,7 @@ import logoIconWhite from "@/assets/logo-icon-white.png";
 import { useRouteContact } from "@/hooks/use-route-contact";
 
 export function SiteFooter() {
-  const { phone } = useRouteContact();
+  const { phone, email } = useRouteContact();
   return (
     <footer className="bg-foreground text-white/80">
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
@@ -21,6 +21,7 @@ export function SiteFooter() {
             <li><a href="#">Terms of Service</a></li>
             <li><Link to="/weight-management">Weight Management</Link></li>
             <li><Link to="/immigrationexam">Immigration Exam</Link></li>
+            <li><Link to="/express-heart-care">Express Heart Care</Link></li>
           </ul>
         </div>
         <div>
@@ -28,7 +29,7 @@ export function SiteFooter() {
           <address className="not-italic text-sm space-y-1">
             <p>1034 S Brentwood Blvd Ste 694<br />Saint Louis, MO 63117</p>
             <p><a href={phone.href} className="hover:underline">{phone.display}</a></p>
-            <p><a href="mailto:incredibleheartit@gmail.com" className="hover:underline break-words">incredibleheartit@gmail.com</a></p>
+            <p><a href={`mailto:${email}`} className="hover:underline break-words">{email}</a></p>
             <p>Fax: (833) 973-4441</p>
           </address>
         </div>
