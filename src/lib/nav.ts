@@ -14,13 +14,7 @@ export const nav: NavItem[] = [
 
   { label: "Patient Portal", href: "https://27550-1.portal.athenahealth.com/?section=welcome" },
   { label: "About Us", href: "/about-us" },
-  {
-    label: "Programs & Care",
-    children: [
-      { label: "Incredible Heart", href: "/" },
-      { label: "Weight Management", href: "/weight-management" },
-    ],
-  },
+  { label: "Weight Management", href: "/weight-management" },
   { label: "Immigration Exam", href: "/immigrationexam" },
   {
     label: "Specialities",

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, ChevronDown } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { AddressLink } from "@/components/AddressLink";
 import { ContactInfoModal } from "@/components/ContactInfoModal";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import { nav } from "@/lib/nav";
@@ -55,7 +56,7 @@ export function SiteHeader() {
       <div className="bg-[var(--brand-blue)] text-white text-sm">
         <div className="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
           <span className="font-semibold">Open Now For Virtual Consultations</span>
-          <span className="opacity-90">In Person — 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</span>
+          <span className="opacity-90">In Person — <AddressLink className="hover:underline">1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</AddressLink></span>
           <button
             type="button"
             onClick={() => setContactOpen(true)}

@@ -10,6 +10,8 @@ import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { insurers } from "@/lib/nav";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
+import { AddressLink } from "@/components/AddressLink";
+import { ExploreServices } from "@/components/ExploreServices";
 
 const reviews = [
   { name: "Patrice Hopes", text: "I thoroughly enjoyed my first visit. Dr. Gurav made me feel right at home and shows real concern for my overall health. The office assistant was so pleasant. You don't always get this type of help — you sometimes feel like a number, but not here." },
@@ -249,25 +251,15 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Take the first step toward a healthier life.</h2>
-            <p className="mt-5 text-white/85 text-lg">Request more information and our team will be in touch.</p>
+            <p className="mt-5 text-white/85 text-lg">Call us and our team will be happy to help.</p>
             <address className="mt-8 space-y-4 text-white/90 not-italic">
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
-              <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
+              <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> <AddressLink className="hover:underline">1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</AddressLink></div>
             </address>
           </div>
-          <form className="rounded-3xl bg-white text-foreground p-8 space-y-4 shadow-xl">
-            <div className="grid grid-cols-2 gap-4">
-              <input className="rounded-lg border border-border px-4 py-3" placeholder="First Name" />
-              <input className="rounded-lg border border-border px-4 py-3" placeholder="Last Name" />
-            </div>
-            <input className="w-full rounded-lg border border-border px-4 py-3" placeholder="Date of birth" />
-            <input className="w-full rounded-lg border border-border px-4 py-3" placeholder="Email" />
-            <input className="w-full rounded-lg border border-border px-4 py-3" placeholder="Phone number*" />
-            <button type="button" className="w-full bg-[var(--brand-pink)] text-white font-semibold py-3 rounded-full hover:opacity-90 transition">Request Information</button>
-            <p className="text-xs text-muted-foreground text-center">*Insurance coverage may vary.</p>
-          </form>
+          <ExploreServices exclude="heart" />
         </div>
       </section>
 

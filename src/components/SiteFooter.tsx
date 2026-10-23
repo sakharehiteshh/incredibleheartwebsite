@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logoIconWhite from "@/assets/logo-icon-white.png";
+import { AddressLink } from "@/components/AddressLink";
 import { useRouteContact } from "@/hooks/use-route-contact";
 
 export function SiteFooter() {
@@ -27,7 +28,7 @@ export function SiteFooter() {
         <div>
           <div className="font-semibold text-white mb-3">Visit Us</div>
           <address className="not-italic text-sm space-y-1">
-            <p>1034 S Brentwood Blvd Ste 694<br />Saint Louis, MO 63117</p>
+            <p><AddressLink>1034 S Brentwood Blvd Ste 694<br />Saint Louis, MO 63117</AddressLink></p>
             <p><a href={phone.href} className="hover:underline">{phone.display}</a></p>
             <p><a href={`mailto:${email}`} className="hover:underline break-words">{email}</a></p>
             <p>Fax: (833) 973-4441</p>

@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useMapsUrl } from "@/components/AddressLink";
 import { useRouteContact } from "@/hooks/use-route-contact";
 
 interface ContactInfoModalProps {
@@ -15,9 +16,10 @@ interface ContactInfoModalProps {
 
 export function ContactInfoModal({ open, onOpenChange }: ContactInfoModalProps) {
   const { phone, address, email } = useRouteContact();
+  const mapsUrl = useMapsUrl();
 
   const contactDetails = [
-    { icon: MapPin, label: "Address", value: address, href: undefined },
+    { icon: MapPin, label: "Address", value: address, href: mapsUrl, external: true },
     { icon: Phone, label: "Phone", value: phone.display, href: phone.href },
     { icon: Mail, label: "Email", value: email, href: `mailto:${email}` },
     { icon: Printer, label: "Fax", value: "(833) 973-4441", href: undefined },
@@ -37,7 +39,7 @@ export function ContactInfoModal({ open, onOpenChange }: ContactInfoModalProps) 
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{c.label}</div>
                 {c.href ? (
-                  <a href={c.href} className="text-foreground hover:underline break-words">
+                  <a href={c.href} {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-foreground hover:underline break-words">
                     {c.value}
                   </a>
                 ) : (

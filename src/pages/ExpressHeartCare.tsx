@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
+import { AddressLink } from "@/components/AddressLink";
 import { EXPRESS_SITE_URL } from "@/lib/siteContact";
 
 const included = [
@@ -251,7 +252,7 @@ function ExpressHeartCare() {
           <address className="space-y-4 text-white/90 not-italic text-lg">
             <div className="flex items-center gap-3"><Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a></div>
             <div className="flex items-center gap-3"><Mail className="w-5 h-5" /> <a href={`mailto:${email}`} className="hover:underline break-all">{email}</a></div>
-            <div className="flex items-center gap-3"><MapPin className="w-5 h-5 shrink-0" /> {address}</div>
+            <div className="flex items-center gap-3"><MapPin className="w-5 h-5 shrink-0" /> <AddressLink className="hover:underline">{address}</AddressLink></div>
           </address>
         </div>
       </section>

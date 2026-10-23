@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 import { useRouteContact } from "@/hooks/use-route-contact";
+import { AddressLink } from "@/components/AddressLink";
 
 const values = [
   {
@@ -164,7 +165,7 @@ function AboutUs() {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5" /> <a href={phone.href} className="hover:underline">{phone.display}</a>
               </div>
-              <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> 1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</div>
+              <div className="flex items-center gap-3"><MapPin className="w-5 h-5" /> <AddressLink className="hover:underline">1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</AddressLink></div>
             </address>
           </div>
           <form className="rounded-3xl bg-white text-foreground p-8 space-y-4 shadow-xl">

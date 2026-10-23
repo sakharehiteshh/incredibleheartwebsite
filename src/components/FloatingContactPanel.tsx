@@ -1,4 +1,5 @@
 import { Phone, MapPin, Mail, Printer } from "lucide-react";
+import { AddressLink } from "@/components/AddressLink";
 import { FloatingWidgetShell } from "@/components/FloatingWidgetShell";
 import { useRouteContact } from "@/hooks/use-route-contact";
 
@@ -15,10 +16,10 @@ function ContactBody({ compact }: { compact?: boolean }) {
           <Phone className="w-4 h-4 text-[var(--brand-blue)] mt-0.5 shrink-0" />
           {phone.display}
         </a>
-        <div className="flex items-start gap-2.5 text-foreground/80">
+        <AddressLink className="flex items-start gap-2.5 text-foreground hover:underline">
           <MapPin className="w-4 h-4 text-[var(--brand-blue)] mt-0.5 shrink-0" />
           {address}
-        </div>
+        </AddressLink>
         <a href={`mailto:${email}`} className="flex items-start gap-2.5 text-foreground hover:underline break-all">
           <Mail className="w-4 h-4 text-[var(--brand-blue)] mt-0.5 shrink-0" />
           {email}
