@@ -4,6 +4,8 @@ import manKid from "@/assets/man-kid.webp";
 import kenyaTripPoster from "@/assets/kenya-trip-poster.webp";
 import tvSegmentPoster from "@/assets/tv-segment-poster.webp";
 import { Activity, Stethoscope, Home as HomeIcon, Phone, MapPin, Star, Check } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ReviewsBadge } from "@/components/ReviewsBadge";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
@@ -39,8 +41,8 @@ const videos = [
 
 function Home() {
   useDocumentMeta(
-    "Incredible Heart — Cardiologist in Saint Louis, MO | Cardiac Care, Everywhere",
-    "Board-certified cardiologist Dr. Kunal Gurav, MD, FACC offers same-day in-person and virtual cardiac care in Saint Louis, MO — arrhythmia, heart failure, EKG, echocardiogram and more. Call (314) 557-2620.",
+    "Incredible Heart | Cardiologist in Saint Louis, MO",
+    "Call (314) 557-2620. Board-certified cardiologist Dr. Kunal Gurav offers same-day in-person and virtual cardiac care in Saint Louis, MO.",
   );
   const { phone } = useRouteContact();
 
@@ -64,13 +66,14 @@ function Home() {
           </div>
           <div>
             <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
-              Cardiac Care<br />
+              Cardiac Care{" "}<br />
               <span className="text-[var(--brand-pink)]">Everywhere</span>
             </h1>
             <p className="mt-8 text-lg text-foreground/75 max-w-lg leading-relaxed">
               Your dedicated cardiologists at Incredible Heart prioritize personalized care, whether in-person or from home. With services ranging from same-day appointments for immediate attention to ongoing support, we're committed to your cardiac health.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <ReviewsBadge className="mt-6" />
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <a
                 href="https://www.zocdoc.com/booking-link/doctor/kunal-gurav-md-396698"
                 target="_blank"
@@ -123,14 +126,13 @@ function Home() {
             <img src={manKid} alt="Grandfather and granddaughter" loading="lazy" width={1100} height={1100} className="w-full h-auto" />
           </div>
           <div>
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">Incredible Membership</span>
-            <h2 className="mt-4 text-4xl lg:text-5xl font-extrabold tracking-tight">Proactive care for an Incredible Heart.</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Proactive care for an Incredible Heart.</h2>
             <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
               Incredible Membership integrates user-friendly monitoring devices, empowering you to proactively manage your cardiac health. And when you need in-person attention, our physical location is here for you.
             </p>
-            <a href="#" className="mt-8 inline-flex items-center gap-2 bg-[var(--brand-blue)] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition">
+            <Link to="/weight-management" className="mt-8 inline-flex items-center gap-2 bg-[var(--brand-blue)] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition">
               Learn more
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -146,7 +148,7 @@ function Home() {
                   key={`${ins.name}-${idx}`}
                   className={`h-16 w-40 shrink-0 flex items-center justify-center rounded-xl px-4 ${ins.darkTile ? "bg-[var(--brand-blue)]" : "bg-secondary"}`}
                 >
-                  <img src={ins.logo} alt={ins.name} className="max-h-9 max-w-full object-contain" />
+                  <img src={ins.logo} alt={ins.name} width={128} height={36} loading="lazy" decoding="async" className="max-h-9 max-w-full object-contain" />
                 </div>
               ))}
             </div>
@@ -160,7 +162,7 @@ function Home() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">What Our Patients Say</h2>
             <p className="mt-4 text-lg text-foreground/70">
-              270+ patients say <span className="text-[var(--brand-yellow)]">★★★★★</span> — discover exceptional care.
+              450+ patients say <span className="text-[var(--brand-yellow)]">★★★★★</span> — discover exceptional care.
             </p>
           </div>
           <div className="mt-12 group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">

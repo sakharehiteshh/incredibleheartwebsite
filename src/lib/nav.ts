@@ -2,12 +2,12 @@ import aetnaLogo from "@/assets/logo-aetna.svg";
 import emblemHealthLogo from "@/assets/logo-emblemhealth.png";
 import ambetterLogo from "@/assets/logo-ambetter.png";
 import devotedHealthLogo from "@/assets/logo-devoted-health.svg";
-import essenceLogo from "@/assets/logo-essence.png";
+import essenceLogo from "@/assets/logo-essence.webp";
 import medicareLogo from "@/assets/logo-medicare.png";
 import unitedHealthcareLogo from "@/assets/logo-unitedhealthcare.svg";
 import moHealthNetLogo from "@/assets/logo-mohealthnet.png";
 
-export type NavChild = { label: string; href: string };
+export type NavChild = { label: string; href?: string };
 export type NavItem = { label: string; href?: string; children?: NavChild[] };
 
 export const nav: NavItem[] = [
@@ -27,7 +27,7 @@ export const nav: NavItem[] = [
       "Pericarditis", "Peripheral Arterial Disease", "Postural Orthostatic Tachycardia Syndrome (POTS)",
       "Shortness of Breath", "Sleep Apnea", "Stroke", "Sudden Cardiac Death",
       "Tachycardia", "Transient Ischemic Attack", "Varicose Vein", "Vertigo",
-    ].map((label) => ({ label, href: "#" })),
+    ].map((label) => ({ label })),
   },
   {
     label: "Services Offered",
@@ -35,7 +35,7 @@ export const nav: NavItem[] = [
       "Holter Monitors", "Cholesterol Test",
       "Echocardiogram", "EKG Monitoring", "Exercise Stress Test", "Heart Health Screening",
       "Mobile Cardiac Telemetry", "Nuclear Stress Test", "Preop Clearance", "Remote Patient Monitoring",
-    ].map((label) => ({ label, href: "#" })),
+    ].map((label) => ({ label })),
   },
   { label: "Express Heart Care", href: "/express-heart-care" },
   { label: "Blog", href: "https://nuvoair.com/incredible-heart" },

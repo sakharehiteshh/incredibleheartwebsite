@@ -1,6 +1,7 @@
 import weightMan from "@/assets/weight-man.webp";
 import doctor from "@/assets/doctor.webp";
 import { Phone, MapPin, Star, Check, Scale, Pill, Users, HeartPulse } from "lucide-react";
+import { ReviewsBadge } from "@/components/ReviewsBadge";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { insurers } from "@/lib/nav";
@@ -34,8 +35,8 @@ const heartProgram = [
 
 function WeightManagement() {
   useDocumentMeta(
-    "Heart Disease & Weight Management Program | Incredible Heart, Saint Louis, MO",
-    "Physician-supervised weight management from a board-certified cardiologist — insurance-approved medication, home smart scales, and coordinated heart-disease care in Saint Louis, MO.",
+    "Weight Management Program in St. Louis | Incredible Heart",
+    "Cardiologist-supervised weight management in Saint Louis, MO: insurance-approved medication, home smart scales, and coordinated heart care.",
   );
   const { phone } = useRouteContact();
 
@@ -47,10 +48,7 @@ function WeightManagement() {
       <section className="relative overflow-hidden bg-[var(--brand-cream)]">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Incredible Membership
-            </span>
-            <h1 className="mt-4 text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
               Personalized Heart Disease<br />&amp; Weight Management
             </h1>
             <p className="mt-8 text-lg text-foreground/75 max-w-lg leading-relaxed">
@@ -60,7 +58,8 @@ function WeightManagement() {
             <blockquote className="mt-6 border-l-4 border-[var(--brand-blue)] pl-4 italic text-foreground/70">
               "The best doctor gives the least medicines."
             </blockquote>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <ReviewsBadge className="mt-6" />
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <a
                 href="https://www.zocdoc.com/booking-link/doctor/kunal-gurav-md-396698"
                 target="_blank"
@@ -92,10 +91,7 @@ function WeightManagement() {
       <section className="bg-white border-y border-border/60">
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
           <div className="order-2 lg:order-1">
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Expert in Cardiology &amp; Weight Management
-            </span>
-            <h2 className="mt-4 text-5xl font-extrabold tracking-tight">Meet Dr. Kunal Gurav</h2>
+            <h2 className="text-5xl font-extrabold tracking-tight">Meet Dr. Kunal Gurav</h2>
             <h3 className="mt-3 text-xl text-[var(--brand-blue)] font-semibold">Credentials | MD, FACC, MBA</h3>
             <ul className="mt-8 space-y-3 text-foreground/80">
               {[
@@ -198,7 +194,7 @@ function WeightManagement() {
       <section>
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">270+ Patients Say</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">450+ Patients Say</h2>
             <p className="mt-4 text-lg text-foreground/70">
               <span className="text-[var(--brand-yellow)]">★★★★★</span> — real results from a coordinated care team.
             </p>
@@ -238,7 +234,7 @@ function WeightManagement() {
                   key={`${ins.name}-${idx}`}
                   className={`h-16 w-40 shrink-0 flex items-center justify-center rounded-xl px-4 ${ins.darkTile ? "bg-[var(--brand-blue)]" : "bg-secondary"}`}
                 >
-                  <img src={ins.logo} alt={ins.name} className="max-h-9 max-w-full object-contain" />
+                  <img src={ins.logo} alt={ins.name} width={128} height={36} loading="lazy" decoding="async" className="max-h-9 max-w-full object-contain" />
                 </div>
               ))}
             </div>

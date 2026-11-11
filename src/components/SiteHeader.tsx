@@ -15,7 +15,11 @@ function NavAnchor({
   className,
   children,
   ...rest
-}: React.ComponentPropsWithoutRef<"a"> & { href: string }) {
+}: React.ComponentPropsWithoutRef<"a"> & { href?: string }) {
+  // Items without a destination render as plain text rather than a dead "#" link.
+  if (!href) {
+    return <span className={className}>{children}</span>;
+  }
   const isExternal = /^https?:\/\//.test(href);
   if (isExternal) {
     return (
@@ -75,7 +79,7 @@ export function SiteHeader() {
             {nav.map((n) => (
               <div key={n.label} className="relative group">
                 <NavAnchor
-                  href={n.href ?? "#"}
+                  href={n.href}
                   className="inline-flex items-center gap-1 py-6 hover:text-[var(--brand-blue)] transition-colors"
                 >
                   {n.label}
@@ -140,7 +144,7 @@ export function SiteHeader() {
               ) : (
                 <SheetClose asChild key={n.label}>
                   <NavAnchor
-                    href={n.href ?? "#"}
+                    href={n.href}
                     className="py-3 font-medium border-b border-border/60 hover:text-[var(--brand-blue)]"
                   >
                     {n.label}

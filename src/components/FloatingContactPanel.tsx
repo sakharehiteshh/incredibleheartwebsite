@@ -8,9 +8,7 @@ function ContactBody({ compact }: { compact?: boolean }) {
 
   return (
     <div className={compact ? "w-[280px] max-w-[85vw] rounded-2xl bg-white border border-border shadow-xl p-5" : ""}>
-      <span className="inline-block text-[11px] font-bold tracking-widest text-[var(--brand-blue)] uppercase">
-        Contact Us
-      </span>
+      <div className="font-bold text-foreground">Contact us</div>
       <div className="mt-3 space-y-3 text-sm">
         <a href={phone.href} className="flex items-start gap-2.5 text-foreground hover:underline">
           <Phone className="w-4 h-4 text-[var(--brand-blue)] mt-0.5 shrink-0" />

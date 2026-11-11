@@ -86,7 +86,7 @@
   --brand-blue: oklch(0.5 0.24 265);
   --brand-pink: oklch(0.7 0.2 5);
   --brand-yellow: oklch(0.92 0.18 100);
-  --font-sans: "Source Sans 3", "Lato", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -145,6 +145,42 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    caret-color: var(--brand-blue);
+  }
+
+  ::selection {
+    background-color: var(--brand-blue);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-pink);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+  }
+
+  html {
+    scrollbar-color: color-mix(in oklch, var(--brand-blue) 55%, transparent) transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

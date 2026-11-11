@@ -29,9 +29,26 @@ const immigrationFaq = `
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "How many visits does the exam take?", "acceptedAnswer": { "@type": "Answer", "text": "Two. The first visit is the initial exam and identifies any additional testing you need. The second visit is to complete and seal Form I-693 once results are back." } },
-          { "@type": "Question", "name": "Is additional testing covered by insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — any additional testing your Civil Surgeon orders is insurance-covered and can be completed at a facility of your choice. We provide referrals." } },
-          { "@type": "Question", "name": "When is payment due?", "acceptedAnswer": { "@type": "Answer", "text": "The fee covers both office visits and is due at your first visit." } }
+          {"@type": "Question", "name": "Can I request a same-day appointment?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Call (314) 557-2620, extension 7, to ask about same-day availability. Openings are not guaranteed."}},
+          {"@type": "Question", "name": "Do you offer weekend appointments?", "acceptedAnswer": {"@type": "Answer", "text": "Weekend appointment slots are available by request, with a $50 weekend convenience fee. Call us to check availability."}},
+          {"@type": "Question", "name": "What if I have an RFE or interview deadline?", "acceptedAnswer": {"@type": "Answer", "text": "Contact the scheduling team with the date and ask whether expedited appointment options are available. The clinic cannot guarantee laboratory turnaround times or USCIS processing outcomes."}},
+          {"@type": "Question", "name": "Are blood or other samples collected on site?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for applicable required tests, samples are collected at our on-site draw station. Some follow-up testing, vaccinations or specialist services may still require an outside facility."}},
+          {"@type": "Question", "name": "How many visits will I need?", "acceptedAnswer": {"@type": "Answer", "text": "The process includes two office visits. The exact timing and any additional steps depend on your records and test results."}},
+          {"@type": "Question", "name": "What should I bring?", "acceptedAnswer": {"@type": "Answer", "text": "Bring your photo ID and any vaccination records. We provide Form I-693 at the clinic, so please do not bring a printed copy."}},
+          {"@type": "Question", "name": "How much does the exam cost?", "acceptedAnswer": {"@type": "Answer", "text": "We accept HSA/FSA cards. We don't bill insurance directly, but some patients have been reimbursed by submitting to their insurance themselves; it depends on your individual plan, copay, and deductible. Call us for the current fee and what it includes."}},
+          {"@type": "Question", "name": "Can I text instead of calling?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can call or text (314) 557-2620. Please don't send passports, medical records or immigration notices by ordinary text."}}
+        ]
+      }
+    </script>`;
+
+const homeFaq = `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "${SITE_URL}/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is there a fee for my Incredible Membership?", "acceptedAnswer": { "@type": "Answer", "text": "No — we offer Incredible cardiology services at no extra cost other than your insurance copay, which is determined by your insurance." } }
         ]
       }
     </script>`;
@@ -40,16 +57,17 @@ const routes = [
   {
     path: "/",
     outFile: "index.html",
-    title: "Incredible Heart — Cardiologist in Saint Louis, MO | Cardiac Care, Everywhere",
+    title: "Incredible Heart | Cardiologist in Saint Louis, MO",
     description:
-      "Board-certified cardiologist Dr. Kunal Gurav, MD, FACC offers same-day in-person and virtual cardiac care in Saint Louis, MO — arrhythmia, heart failure, EKG, echocardiogram and more. Call (314) 557-2620.",
+      "Call (314) 557-2620. Board-certified cardiologist Dr. Kunal Gurav offers same-day in-person and virtual cardiac care in Saint Louis, MO.",
+    extraHead: homeFaq,
   },
   {
     path: "/weight-management",
     outFile: "weight-management/index.html",
-    title: "Heart Disease & Weight Management Program | Incredible Heart, Saint Louis, MO",
+    title: "Weight Management Program in St. Louis | Incredible Heart",
     description:
-      "Physician-supervised weight management from a board-certified cardiologist — insurance-approved medication, home smart scales, and coordinated heart-disease care in Saint Louis, MO.",
+      "Cardiologist-supervised weight management in Saint Louis, MO: insurance-approved medication, home smart scales, and coordinated heart care.",
     extraHead: `
     <script type="application/ld+json">
       {
@@ -75,9 +93,9 @@ const routes = [
   {
     path: "/immigrationexam",
     outFile: "immigrationexam/index.html",
-    title: "Immigration Medical Exam (Form I-693) | Incredible Heart, Saint Louis, MO",
+    title: "USCIS Immigration Medical Exam in St. Louis | Incredible Heart",
     description:
-      "USCIS-designated Civil Surgeon offering immigration medical examinations (Form I-693) in Saint Louis, MO. Two office visits. Call (314) 557-2620.",
+      "USCIS Form I-693 immigration medical exam in St. Louis. Ask about same-day visits, weekend appointments, and on-site sample collection.",
     extraHead: `
     <script type="application/ld+json">
       {
@@ -105,7 +123,7 @@ const routes = [
     outFile: "about-us/index.html",
     title: "About Us | Incredible Heart, Saint Louis, MO",
     description:
-      "Meet Dr. Kunal Gurav and learn why Incredible Heart was built as an independent, preventive cardiology practice focused on personalized, technology-enabled heart care in Saint Louis, MO.",
+      "Meet Dr. Kunal Gurav and learn why Incredible Heart is an independent, preventive cardiology practice in Saint Louis, MO.",
     extraHead: `
     <script type="application/ld+json">
       {
@@ -124,7 +142,7 @@ const routes = [
     outFile: "express-heart-care/index.html",
     title: "Express Heart Care | Same-Day Heart Tests in St. Louis, MO",
     description:
-      "Get an EKG and cholesterol blood test in one visit — reviewed by a board-certified cardiologist. No referral needed. HSA/FSA accepted. Same-day appointments in St. Louis, MO.",
+      "EKG and cholesterol blood test in one visit, reviewed by a board-certified cardiologist. No referral needed. Same-day appointments in St. Louis.",
     extraHead: `
     <script type="application/ld+json">
       {

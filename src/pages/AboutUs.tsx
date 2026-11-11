@@ -1,6 +1,7 @@
 import doctor from "@/assets/doctor.webp";
 import heroCouple from "@/assets/hero-couple.webp";
 import { Phone, MapPin, Check, HeartHandshake, Building2, Sparkles, Activity } from "lucide-react";
+import { ReviewsBadge } from "@/components/ReviewsBadge";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
@@ -28,7 +29,7 @@ const values = [
 function AboutUs() {
   useDocumentMeta(
     "About Us | Incredible Heart, Saint Louis, MO",
-    "Meet Dr. Kunal Gurav and learn why Incredible Heart was built as an independent, preventive cardiology practice focused on personalized, technology-enabled heart care in Saint Louis, MO.",
+    "Meet Dr. Kunal Gurav and learn why Incredible Heart is an independent, preventive cardiology practice in Saint Louis, MO.",
   );
   const { phone } = useRouteContact();
 
@@ -40,10 +41,7 @@ function AboutUs() {
       <section className="relative overflow-hidden bg-[var(--brand-cream)]">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              About Us
-            </span>
-            <h1 className="mt-4 text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
               An independent practice, <span className="text-[var(--brand-pink)]">built around you</span>
             </h1>
             <p className="mt-8 text-lg text-foreground/75 leading-relaxed">
@@ -51,6 +49,7 @@ function AboutUs() {
               the belief that heart care should mean a real relationship with your doctor, not a rushed appointment
               inside a system built for volume.
             </p>
+            <ReviewsBadge className="mt-6" />
           </div>
         </div>
       </section>
@@ -59,10 +58,7 @@ function AboutUs() {
       <section className="bg-white border-y border-border/60">
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
           <div className="order-2 lg:order-1">
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Dr. Kunal Gurav's Journey
-            </span>
-            <h2 className="mt-4 text-4xl font-extrabold tracking-tight">Why an independent practice</h2>
+            <h2 className="text-4xl font-extrabold tracking-tight">Why an independent practice</h2>
             <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
               <p>
                 Dr. Gurav trained and built his career treating heart disease inside large health systems — where
@@ -134,10 +130,7 @@ function AboutUs() {
             <img src={heroCouple} alt="Happy elderly couple embracing" loading="lazy" width={1280} height={1280} className="w-full h-auto rounded-[2rem]" />
           </div>
           <div>
-            <span className="inline-block text-xs font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Our Philosophy
-            </span>
-            <h2 className="mt-4 text-4xl lg:text-5xl font-extrabold tracking-tight">"The best doctor gives the least medicines."</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">"The best doctor gives the least medicines."</h2>
             <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
               Prevention is at the center of everything Dr. Gurav does. Instead of waiting for a heart attack or
               stroke to start a conversation, Incredible Heart focuses on catching risk factors early — high blood

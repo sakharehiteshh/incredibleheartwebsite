@@ -73,7 +73,7 @@ const faqs = [
 function ExpressHeartCare() {
   useDocumentMeta(
     "Express Heart Care | Same-Day Heart Tests in St. Louis, MO",
-    "Get an EKG and cholesterol blood test in one visit — reviewed by a board-certified cardiologist. No referral needed. HSA/FSA accepted. Same-day appointments in St. Louis, MO.",
+    "EKG and cholesterol blood test in one visit, reviewed by a board-certified cardiologist. No referral needed. Same-day appointments in St. Louis.",
   );
   const [showWatch, setShowWatch] = useState(false);
   const [showChol, setShowChol] = useState(false);
@@ -89,14 +89,11 @@ function ExpressHeartCare() {
       <section className="relative overflow-hidden bg-[var(--brand-cream)]">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
           <div className="max-w-3xl">
-            <span className="inline-block text-base font-bold tracking-widest text-[var(--brand-pink)] uppercase">
-              Express Heart Care
-            </span>
-            <h1 className="mt-4 text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
               Heart Tests in Minutes Reviewed by a Board-Certified Cardiologist
             </h1>
             <p className="mt-8 text-lg text-foreground/75 leading-relaxed">
-              An EKG and a cardiac blood panel in one visit. No referral needed. Skip the wait and get tested today.
+              Express Heart Care gives you an EKG and a cardiac blood panel in one visit. No referral needed. Skip the wait and get tested today.
             </p>
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-semibold">
               {[
@@ -147,7 +144,7 @@ function ExpressHeartCare() {
             <div className="rounded-3xl border border-border bg-white p-8">
               <div className="w-12 h-12 rounded-2xl bg-[var(--brand-blue)] text-white flex items-center justify-center"><Activity className="w-6 h-6" /></div>
               <h3 className="mt-5 text-2xl font-bold">12-Lead EKG / ECG</h3>
-              <p className="mt-1 text-xs font-bold tracking-widest uppercase text-[var(--brand-pink)]">Your heart's electrical activity</p>
+              <p className="mt-1 text-foreground/70">Your heart's electrical activity</p>
               <ul className="mt-4 space-y-2 text-foreground/80">
                 {ekgPoints.map((p) => (
                   <li key={p} className="flex gap-3"><Check className="w-5 h-5 text-[var(--brand-blue)] mt-0.5 shrink-0" /> {p}</li>
@@ -169,7 +166,7 @@ function ExpressHeartCare() {
             <div className="rounded-3xl border border-border bg-white p-8">
               <div className="w-12 h-12 rounded-2xl bg-[var(--brand-blue)] text-white flex items-center justify-center"><Droplet className="w-6 h-6" /></div>
               <h3 className="mt-5 text-2xl font-bold">Cardiac Blood Panel</h3>
-              <p className="mt-1 text-xs font-bold tracking-widest uppercase text-[var(--brand-pink)]">Your cholesterol and blood fats</p>
+              <p className="mt-1 text-foreground/70">Your cholesterol and blood fats</p>
               <ul className="mt-4 space-y-2 text-foreground/80">
                 {bloodPanel.map((p) => (
                   <li key={p} className="flex gap-3"><Check className="w-5 h-5 text-[var(--brand-blue)] mt-0.5 shrink-0" /> {p}</li>
@@ -223,13 +220,12 @@ function ExpressHeartCare() {
       <section className="bg-[var(--brand-cream)]">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block text-base font-bold tracking-widest text-[var(--brand-pink)] uppercase">Why screen your heart?</span>
-            <h2 className="mt-3 text-4xl lg:text-5xl font-extrabold tracking-tight">Catch it early, treat it fast.</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Catch it early, treat it fast.</h2>
           </div>
           <div className="mt-14 grid md:grid-cols-2 gap-8">
             {stats.map((s) => (
               <div key={s.big} className="rounded-3xl bg-white border border-border p-8">
-                <div className="text-sm font-bold tracking-widest uppercase text-[var(--brand-pink)]">{s.title}</div>
+                <div className="font-semibold text-foreground/70">{s.title}</div>
                 <div className="mt-2 text-3xl font-extrabold text-[var(--brand-blue)]">{s.big}</div>
                 <p className="mt-3 text-foreground/80 leading-relaxed">{s.text}</p>
                 <p className="mt-3 text-xs text-foreground/60">Source: {s.source}</p>
