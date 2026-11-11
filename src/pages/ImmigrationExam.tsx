@@ -116,10 +116,14 @@ function ImmigrationExam() {
               Your <span className="text-[var(--brand-blue)]">Immigration Medical Exam</span>, made easier.
             </h1>
             <p className="mt-8 text-lg text-foreground/75 leading-relaxed max-w-[62ch]">
-              Get help with your USCIS Form I-693 from Dr. Kunal Gurav, a USCIS-designated Civil Surgeon, and the
-              Incredible Heart team in St. Louis. Ask about same-day visits, weekend scheduling, and on-site sample
-              collection.
+              Get help with your USCIS Form I-693 from Dr. Kunal Gurav, a USCIS-designated Civil Surgeon and the
+              Incredible Heart team in St. Louis.
             </p>
+            <span className="mt-8 text-lg text-foreground/75 leading-relaxed max-w-[62ch]">
+              Ask about same-day visits, weekend appointments, and on-site sample collection.
+            </span>
+            
+
             <ReviewsBadge className="mt-6" />
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={pinkCta}>

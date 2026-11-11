@@ -60,7 +60,7 @@ export function SiteHeader() {
       <div className="bg-[var(--brand-blue)] text-white text-sm">
         <div className="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
           <span className="font-semibold">Open Now For Virtual Consultations</span>
-          <span className="opacity-90">In Person — <AddressLink className="hover:underline">1034 S Brentwood Blvd Ste 694, Saint Louis, MO 63117</AddressLink></span>
+          <span className="opacity-90">In Person — <AddressLink className="hover:underline">1034 S Brentwood Blvd Ste 694 (6th Floor), Saint Louis, MO 63117</AddressLink></span>
           <button
             type="button"
             onClick={() => setContactOpen(true)}

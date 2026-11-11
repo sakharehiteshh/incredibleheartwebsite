@@ -7,7 +7,9 @@ export const EXPRESS_EMAIL = "expressheartcare@gmail.com";
 export const EXPRESS_SITE_URL = "https://www.expressheartcare.com";
 const EXPRESS_BOOKING_URL = "https://calendly.com/expressheartcare/";
 
-export const ADDRESS = "1034 S Brentwood Blvd Ste 694, St. Louis, MO 63117";
+export const ADDRESS = "1034 S Brentwood Blvd Ste 694 (6th Floor), St. Louis, MO 63117";
+/** Address as searched in Google Maps (no floor note, so the lookup stays exact). */
+export const MAPS_QUERY = "1034 S Brentwood Blvd Ste 694, St. Louis, MO 63117";
 export const EMAIL = "incredibleheartit@gmail.com";
 export const FAX = "(833) 973-4441";
 
