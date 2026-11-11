@@ -26,7 +26,7 @@ const conveniences = [
 const route = [
   "Park in the building lot.",
   "Take the accessibility ramp up to the glass entrance.",
-  "Look for the door with the Incredible Heart sign.",
+  "Come up to the 6th floor and look for the door with the Incredible Heart sign.",
   "Check in at the front desk. If your application is time-sensitive, ask about Fast Track.",
 ];
 
