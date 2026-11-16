@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import doctor from "@/assets/doctor.webp";
 import {
@@ -14,7 +13,6 @@ import { ExploreServices } from "@/components/ExploreServices";
 
 const BOOKING_URL = "https://calendly.com/incredibleheartit/30min";
 const SMS_HREF = "sms:+13145572620";
-const CHECKLIST_KEY = "ih_i693_preparation_v2";
 
 const conveniences = [
   { icon: CalendarClock, title: "Same-day visits", text: "Need an appointment soon? Call to ask about available same-day openings." },
@@ -85,24 +83,6 @@ function ImmigrationExam() {
   const { phone } = useRouteContact();
   const mapsUrl = useMapsUrl();
 
-  const [ready, setReady] = useState<boolean[]>(() => checklist.map(() => false));
-  useEffect(() => {
-    try {
-      const prior = JSON.parse(localStorage.getItem(CHECKLIST_KEY) || "[]");
-      if (Array.isArray(prior)) setReady(checklist.map((_, i) => !!prior[i]));
-    } catch {
-      // saved state is optional
-    }
-  }, []);
-  const saveReady = (next: boolean[]) => {
-    setReady(next);
-    try {
-      localStorage.setItem(CHECKLIST_KEY, JSON.stringify(next));
-    } catch {
-      // saved state is optional
-    }
-  };
-  const readyCount = ready.filter(Boolean).length;
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -119,25 +99,22 @@ function ImmigrationExam() {
               Get help with your USCIS Form I-693 from Dr. Kunal Gurav, a USCIS-designated Civil Surgeon and the
               Incredible Heart team in St. Louis.
             </p>
-            <span className="mt-8 text-lg text-foreground/75 leading-relaxed max-w-[62ch]">
-              Ask about same-day visits, weekend appointments, and on-site sample collection.
-            </span>
-            
-
+            <ul className="mt-6 space-y-2 text-lg font-semibold">
+              {["Same-day visits available", "Weekend appointments available", "Language translation available"].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <Check className="w-5 h-5 text-[var(--brand-blue)] mt-1.5 shrink-0" /> {t}
+                </li>
+              ))}
+            </ul>
             <ReviewsBadge className="mt-6" />
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={pinkCta}>
                 Book Your I-693 Exam
               </a>
               <a href={phone.href} className={outlineCta}>
-                <Phone className="w-4 h-4" /> Call for Same-Day Visits
+                <Phone className="w-4 h-4" /> Call or text {phone.display}
               </a>
             </div>
-            <p className="mt-5 text-sm text-foreground/65">
-              Call {phone.display} ·{" "}
-              <a href={SMS_HREF} className="font-semibold text-[var(--brand-blue)] hover:underline">Text our team</a>{" "}
-              · Appointments subject to availability
-            </p>
           </div>
           <div className="relative w-full max-w-sm mx-auto lg:mx-0 lg:justify-self-end py-6">
             <div className="absolute inset-y-0 left-10 right-0 bg-[var(--brand-blue)] rounded-[2.5rem]" aria-hidden="true" />
@@ -188,36 +165,21 @@ function ImmigrationExam() {
 
           <div id="prepare" className="scroll-mt-24">
             <h2 className="text-4xl font-extrabold tracking-tight">What should I bring?</h2>
-            <p className="mt-5 text-foreground/75">Check off what you have ready.</p>
-            <ul className="mt-4 divide-y divide-border border-y border-border">
-              {checklist.map((item, i) => (
-                <li key={item}>
-                  <label className="flex items-start gap-3 py-4 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={ready[i]}
-                      onChange={(e) => saveReady(ready.map((v, j) => (j === i ? e.target.checked : v)))}
-                      className="mt-1 w-5 h-5 accent-[var(--brand-blue)]"
-                    />
-                    <span className={ready[i] ? "text-foreground/55 line-through" : ""}>{item}</span>
-                  </label>
+            <ul className="mt-8 space-y-3 text-lg">
+              {checklist.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <Check className="w-5 h-5 text-[var(--brand-blue)] mt-1.5 shrink-0" /> {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-4 flex items-center justify-between text-sm">
-              <span className="font-semibold tabular-nums" aria-live="polite">{readyCount} of {checklist.length} ready</span>
-              <button type="button" onClick={() => saveReady(checklist.map(() => false))} className="font-semibold text-[var(--brand-blue)] hover:underline cursor-pointer">
-                Reset
-              </button>
-            </div>
             <p className="mt-6 rounded-2xl border border-[var(--brand-pink)]/40 bg-[var(--brand-cream)] p-4 text-foreground/80 leading-relaxed">
               <span className="font-bold text-[var(--brand-pink)]">Important:</span> Please DO NOT bring a printed copy
               of the Form I-693. We will provide the required form at the clinic and complete it during your first
               appointment.
             </p>
-            <p className="mt-4 text-sm text-foreground/60">
-              Your checklist is saved only in this browser. Language translation is available during your visit.
-            </p>
+            {/* <p className="mt-5 flex gap-3 text-lg">
+              <Check className="w-5 h-5 text-[var(--brand-blue)] mt-1.5 shrink-0" /> Language translation is available during your visit.
+            </p> */}
           </div>
         </div>
       </section>
