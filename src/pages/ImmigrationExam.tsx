@@ -46,7 +46,7 @@ const pricing = ["Immigration Exam — Fully Covered by HSA/FSA*", "Vaccines —
 const checklist = [
   "Government-issued photo ID or passport",
   "Available vaccination / immunization records",
-  "Payment method and any questions for the clinic",
+  
 ];
 
 const reviews = [

@@ -3,6 +3,7 @@ import doctor from "@/assets/doctor.webp";
 import manKid from "@/assets/man-kid.webp";
 import kenyaTripPoster from "@/assets/kenya-trip-poster.webp";
 import tvSegmentPoster from "@/assets/tv-segment-poster.webp";
+import communityCarePoster from "@/assets/community-care-poster.webp";
 import { Activity, Stethoscope, Home as HomeIcon, Phone, MapPin, Star, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ReviewsBadge } from "@/components/ReviewsBadge";
@@ -36,6 +37,12 @@ const videos = [
     poster: tvSegmentPoster,
     title: "Dr. Gurav Featured on Fox2 News — Ask the Expert",
     description: "Dr. Gurav joins Fox2 News to talk cardiac health and answer viewer questions.",
+  },
+  {
+    youtubeId: "QomdQnNRnrg",
+    poster: communityCarePoster,
+    title: "Beyond the Clinic: Heart Care in the Community",
+    description: "Incredible Heart takes heart care out of the clinic and into the community.",
   },
 ];
 
@@ -190,7 +197,7 @@ function Home() {
               From community outreach to local media, here's more on our mission and our team.
             </p>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-8">
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {videos.map((v) => (
               <div key={v.title} className="rounded-3xl bg-secondary/40 border border-border overflow-hidden">
                 <YouTubeEmbed videoId={v.youtubeId} title={v.title} poster={v.poster} />
